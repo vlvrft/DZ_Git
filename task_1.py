@@ -1,10 +1,10 @@
+import os
 
-f_name = r"C:\\Geek\nginx_logs.txt"
-result = []
-
-with open(f_name, "r", encoding="utf-8") as f:
-    for file in f:
-        file_1 = file.split()
-        result.append((file_1[0], file_1[5].strip('"'), file_1[6]))
-print('\n'.join(map(str, result)))
-
+ROOT = os.path.dirname(__file__)
+project_name = 'my_project'
+paths = [os.path.join(project_name, 'settings'),
+         os.path.join(project_name, 'mainapp')
+         os.path.join(project_name, 'adminapp')
+         os.path.join(project_name, 'authapp')]
+for path1 in paths:
+    os.makedirs(os.path.join(ROOT, path1), exist_ok=True)
